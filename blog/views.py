@@ -1,10 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# return what we want user to see
+# dummy data
+# list of dictionaries, each dict has post content
+posts = [
+    {
+        'author': 'Mujo',
+        'title': 'First blog',
+        'content': 'Read my post here',
+        'date_posted': 'September 28, 2023'
+    },
+    {
+        'author': 'John Doe',
+        'title': 'John\'s story',
+        'content': 'Here\'s my post',
+        'date_posted': 'September 28, 2023'
+    }
+]
+
+# return what we want user to see from "home" page
 def home(request):
-    return HttpResponse('<h1>Blog Home</h1>')
+    # dictionary to pass into render function
+    context = {
+        'posts': posts
+    }
+    return render(request, 'blog/home.html', context)
 
-
+# return what we want user to see from "about" page
 def about(request):
-    return HttpResponse('<h1>Blog About</h1>')
+    return render(request, 'blog/about.html', {'title': 'About'})
