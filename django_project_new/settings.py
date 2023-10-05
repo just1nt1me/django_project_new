@@ -22,12 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0!_=+%pe*mxlbytu(9-g@bhc5&4my3389_$9em5l3e4e1a_0%+'
+# SECRET_KEY = 'django-insecure-0!_=+%pe*mxlbytu(9-g@bhc5&4my3389_$9em5l3e4e1a_0%+'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djang0b10g-470882d5c97f.herokuapp.com']
 
 
 # Application definition
@@ -147,7 +148,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
-
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
